@@ -1,0 +1,19 @@
+# node packages
+node_modules
+
+# build files
+dist
+.cache
+
+# yarn error log
+yarn-error.log
+
+# IDEA
+.idea
+
+# jest coverage
+coverage
+
+# deploy files
+nginx.conf
+Dockerfile
