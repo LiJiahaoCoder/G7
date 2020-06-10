@@ -60,3 +60,27 @@ it('should get 2 vec2s with same value when call copy method given target vec2 a
   expect( target.elements[ 0 ] ).toBe( source.elements[ 0 ]);
   expect( target.elements[ 1 ] ).toBe( source.elements[ 1 ]);
 });
+
+it('should get result of add two vec2s when call add method given 2 vec2s', () => {
+  const target = new Vec2();
+  target.set( 2.0, 3.0 );
+  const vec2 = new Vec2();
+  vec2.set( -1.0, 1.0 );
+
+  vec2.add( target );
+
+  expect( vec2.elements[ 0 ] ).toBe( 1.0 );
+  expect( vec2.elements[ 1 ] ).toBe( 4.0 );
+});
+
+it('should get result of add two vec2s when call static add method given 2 vec2s', () => {
+  const vec2 = new Vec2();
+  vec2.set( 2.0, 3.0 );
+  const anotherVec2 = new Vec2();
+  anotherVec2.set( -1.0, 1.0 );
+
+  const result = Vec2.add( vec2, anotherVec2 );
+
+  expect( result.elements[ 0 ] ).toBe( 1.0 );
+  expect( result.elements[ 1 ] ).toBe( 4.0 );
+});

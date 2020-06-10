@@ -48,6 +48,22 @@ export default class Vec2 {
   }
 
   /**
+   * Adds two vec2s
+   *
+   * @param {Vec2} vec2 Vec2 to be added
+   * @param {Vec2} anotherVec2 Another vec2 to be added
+   * @returns {Vec2} Result of adding two vec2s
+   */
+  static add ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+    const res = new Vec2();
+
+    return res.set(
+      vec2.elements[ 0 ] + anotherVec2.elements[ 0 ],
+      vec2.elements[ 1 ] + anotherVec2.elements[ 1 ],
+    );
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
@@ -80,5 +96,18 @@ export default class Vec2 {
     this.elements[ 1 ] = y;
 
     return this;
+  }
+
+  /**
+   * Add a vec2
+   *
+   * @param {Vec2} vec2 Received vec2 to add
+   * @returns {Vec2} Vec2
+   */
+  public add ( vec2: Vec2 ): Vec2 {
+    return this.set(
+      this.elements[ 0 ] + vec2.elements[ 0 ],
+      this.elements[ 1 ] + vec2.elements[ 1 ],
+    );
   }
 }
