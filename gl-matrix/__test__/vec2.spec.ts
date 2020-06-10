@@ -1,3 +1,4 @@
+import { transcode } from 'buffer';
 import Vec2 from '../src/vec2';
 
 it('should get a vec2 with initial value', () => {
@@ -47,4 +48,15 @@ it('should get [2.0, 8.0] when call fromValues given x is 2.0 and y is 8.0', () 
 
   expect( vec2.elements[ 0 ] ).toBe( x );
   expect( vec2.elements[ 1 ] ).toBe( y );
+});
+
+it('should get 2 vec2s with same value when call copy method given target vec2 and source vec2', () => {
+  const target = new Vec2();
+  const source = new Vec2();
+  source.set( 9.0, 7.0 );
+
+  Vec2.copy( target, source);
+
+  expect( target.elements[ 0 ] ).toBe( source.elements[ 0 ]);
+  expect( target.elements[ 1 ] ).toBe( source.elements[ 1 ]);
 });

@@ -10,16 +10,16 @@ export default class Vec2 {
   }
 
   /**
-   * Create a new vec2 initialized with values from target vec2
+   * Create a new vec2 initialized with values from source vec2
    *
-   * @param {Vec2} target
+   * @param {Vec2} source
    * @returns {Vec2} New vec2
    */
-  static clone ( target: Vec2 ): Vec2 {
-    const vec2 = new Vec2();
-    vec2.set( target.elements[0], target.elements[1] );
+  static clone ( source: Vec2 ): Vec2 {
+    const cloned = new Vec2();
+    cloned.set( source.elements[0], source.elements[1] );
 
-    return vec2;
+    return cloned;
   }
 
   /**
@@ -34,6 +34,17 @@ export default class Vec2 {
     vec2.set( x, y );
 
     return vec2;
+  }
+
+  /**
+   * Copy value2 from source vec2 to target vec2
+   *
+   * @param {Vec2} target Target vec2
+   * @param {Vec2} source Source vec2
+   * @returns {Vec2} Target vec2
+   */
+  static copy ( target: Vec2, source: Vec2 ): Vec2 {
+    return target.set( source.elements[ 0 ], source.elements[ 1 ] );
   }
 
   /**
