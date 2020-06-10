@@ -64,6 +64,22 @@ export default class Vec2 {
   }
 
   /**
+   * Subtracts vec2 from another vec2
+   *
+   * @param {Vec2} vec2 Vec2 to subtract
+   * @param {Vec2} anotherVec2 Vec2 to be subtracted
+   * @returns {Vec2} Result of subtracting two vec2s
+   */
+  static subtract ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+    const res = new Vec2();
+
+    return res.set(
+      vec2.elements[ 0 ] - anotherVec2.elements[ 0 ],
+      vec2.elements[ 1 ] - anotherVec2.elements[ 1 ],
+    );
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
@@ -108,6 +124,19 @@ export default class Vec2 {
     return this.set(
       this.elements[ 0 ] + vec2.elements[ 0 ],
       this.elements[ 1 ] + vec2.elements[ 1 ],
+    );
+  }
+
+  /**
+   * Subtracts curren vec2 from another vec2
+   *
+   * @param {Vec2} vec2 Received vec2 to be subtracted
+   * @returns {Vec2} Vec2
+   */
+  public subtract ( vec2: Vec2 ): Vec2 {
+    return this.set(
+      this.elements[ 0 ] - vec2.elements[ 0 ],
+      this.elements[ 1 ] - vec2.elements[ 1 ],
     );
   }
 }

@@ -61,7 +61,7 @@ it('should get 2 vec2s with same value when call copy method given target vec2 a
   expect( target.elements[ 1 ] ).toBe( source.elements[ 1 ]);
 });
 
-it('should get result of add two vec2s when call add method given 2 vec2s', () => {
+it('should get result of addting two vec2s when call add method given 2 vec2s', () => {
   const target = new Vec2();
   target.set( 2.0, 3.0 );
   const vec2 = new Vec2();
@@ -73,7 +73,7 @@ it('should get result of add two vec2s when call add method given 2 vec2s', () =
   expect( vec2.elements[ 1 ] ).toBe( 4.0 );
 });
 
-it('should get result of add two vec2s when call static add method given 2 vec2s', () => {
+it('should get result of addting two vec2s when call static add method given 2 vec2s', () => {
   const vec2 = new Vec2();
   vec2.set( 2.0, 3.0 );
   const anotherVec2 = new Vec2();
@@ -83,4 +83,26 @@ it('should get result of add two vec2s when call static add method given 2 vec2s
 
   expect( result.elements[ 0 ] ).toBe( 1.0 );
   expect( result.elements[ 1 ] ).toBe( 4.0 );
+});
+
+it('should get result of subtracting two vec2s when call subtract method given 2 vec2s', () => {
+  const subtracted = new Vec2();
+  subtracted.set( 2.0, 3.0 );
+  const vec2 = new Vec2();
+  vec2.subtract( subtracted );
+
+  expect( vec2.elements[ 0 ] ).toBe( -2.0 );
+  expect( vec2.elements[ 1 ] ).toBe( -3.0 );
+});
+
+it('should get result of subtracting two vec2s when call static subtract method given 2 vec2s', () => {
+  const vec2 = new Vec2();
+  vec2.set( 3.0, -1.0 );
+  const subtracted = new Vec2();
+  subtracted.set( 2.0, 3.0 );
+
+  const res = Vec2.subtract( vec2, subtracted );
+
+  expect( res.elements[ 0 ] ).toBe( 1.0 );
+  expect( res.elements[ 1 ] ).toBe( -4.0 );
 });
