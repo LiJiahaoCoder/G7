@@ -106,3 +106,49 @@ it('should get result of subtracting two vec2s when call static subtract method 
   expect( res.elements[ 0 ] ).toBe( 1.0 );
   expect( res.elements[ 1 ] ).toBe( -4.0 );
 });
+
+it('should get result of multiplying two vec2s when call multiply method given 2 vec2s', () => {
+  const multiplied = new Vec2();
+  multiplied.set( 2.0, 3.0 );
+  const vec2 = new Vec2();
+  vec2.set( 9.0, 2.0 );
+  vec2.multiply( multiplied );
+
+  expect( vec2.elements[ 0 ] ).toBe( 18.0 );
+  expect( vec2.elements[ 1 ] ).toBe( 6.0 );
+});
+
+it('should get result of multiplying two vec2s when call static multiply method given 2 vec2s', () => {
+  const vec2 = new Vec2();
+  vec2.set( 3.0, -1.0 );
+  const multiplied = new Vec2();
+  multiplied.set( 2.0, 3.0 );
+
+  const res = Vec2.multiply( vec2, multiplied );
+
+  expect( res.elements[ 0 ] ).toBe( 6.0 );
+  expect( res.elements[ 1 ] ).toBe( -3.0 );
+});
+
+it('should get result of dividing two vec2s when call divide method given 2 vec2s', () => {
+  const devided = new Vec2();
+  devided.set( 2.0, 3.0 );
+  const vec2 = new Vec2();
+  vec2.set( 2.0, 1.5 );
+  vec2.divide( devided );
+
+  expect( vec2.elements[ 0 ] ).toBe( 1.0 );
+  expect( vec2.elements[ 1 ] ).toBe( 0.5 );
+});
+
+it('should get result of dividing two vec2s when call static divide method given 2 vec2s', () => {
+  const vec2 = new Vec2();
+  vec2.set( 3.0, -1.0 );
+  const multiplied = new Vec2();
+  multiplied.set( 2.0, 1.0 );
+
+  const res = Vec2.divide( vec2, multiplied );
+
+  expect( res.elements[ 0 ] ).toBe( 1.5 );
+  expect( res.elements[ 1 ] ).toBe( -1.0 );
+});

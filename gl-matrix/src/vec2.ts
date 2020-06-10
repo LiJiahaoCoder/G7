@@ -80,6 +80,38 @@ export default class Vec2 {
   }
 
   /**
+   * Multiply vec2 with another vec2
+   *
+   * @param {Vec2} vec2 Vec2 to multiply
+   * @param {Vec2} anotherVec2 Vec2 to be multiplied
+   * @returns {Vec2} Result of multiplying two vec2s
+   */
+  static multiply ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+    const res = new Vec2();
+
+    return res.set(
+      vec2.elements[ 0 ] * anotherVec2.elements[ 0 ],
+      vec2.elements[ 1 ] * anotherVec2.elements[ 1 ],
+    );
+  }
+
+  /**
+   * Divide vec2 with another vec2
+   *
+   * @param {Vec2} vec2 Vec2 to divide
+   * @param {Vec2} anotherVec2 Vec2 to be divided
+   * @returns {Vec2} Result of dividing two vec2s
+   */
+  static divide ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+    const res = new Vec2();
+
+    return res.set(
+      vec2.elements[ 0 ] / anotherVec2.elements[ 0 ],
+      vec2.elements[ 1 ] / anotherVec2.elements[ 1 ],
+    );
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
@@ -137,6 +169,32 @@ export default class Vec2 {
     return this.set(
       this.elements[ 0 ] - vec2.elements[ 0 ],
       this.elements[ 1 ] - vec2.elements[ 1 ],
+    );
+  }
+
+  /**
+   * Multiply curren vec2 from another vec2
+   *
+   * @param {Vec2} vec2 Received vec2 to be multiplied
+   * @returns {Vec2} Vec2
+   */
+  public multiply ( vec2: Vec2 ): Vec2 {
+    return this.set(
+      this.elements[ 0 ] * vec2.elements[ 0 ],
+      this.elements[ 1 ] * vec2.elements[ 1 ],
+    );
+  }
+
+  /**
+   * Divide curren vec2 from another vec2
+   *
+   * @param {Vec2} vec2 Received vec2 to be divided
+   * @returns {Vec2} Vec2
+   */
+  public divide ( vec2: Vec2 ): Vec2 {
+    return this.set(
+      this.elements[ 0 ] / vec2.elements[ 0 ],
+      this.elements[ 1 ] / vec2.elements[ 1 ],
     );
   }
 }
