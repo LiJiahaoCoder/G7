@@ -39,3 +39,12 @@ it('should get a same vec2 when call clone method given a specified vec2', () =>
   expect( cloned.elements[ 0 ] ).toBe( target.elements[ 0 ] );
   expect( cloned.elements[ 1 ] ).toBe( target.elements[ 1 ] );
 });
+
+it('should get [2.0, 8.0] when call fromValues given x is 2.0 and y is 8.0', () => {
+  const x = 2.0;
+  const y = 8.0;
+  const vec2 = Vec2.fromValues( x, y );
+
+  expect( vec2.elements[ 0 ] ).toBe( x );
+  expect( vec2.elements[ 1 ] ).toBe( y );
+});

@@ -23,6 +23,20 @@ export default class Vec2 {
   }
 
   /**
+   * Create a new vec2 initialized with given values
+   *
+   * @param {number} x X value
+   * @param {number} y Y value
+   * @returns {Vec2}
+   */
+  static fromValues ( x: number, y: number ): Vec2 {
+    const vec2 = new Vec2();
+    vec2.set( x, y );
+
+    return vec2;
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
