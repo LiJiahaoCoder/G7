@@ -202,10 +202,17 @@ it('should get distance of two vec2s when call distance method', () => {
 });
 
 it('should get negative vec2 when call negate method', () => {
-  const vec2 = new Vec2();
-  vec2.set( -2.0, 3.0 );
+  const vec2 = new Vec2({ x: -2.0, y: 3.0 });
   vec2.negate();
 
   expect( vec2.x ).toBe( 2.0 );
   expect( vec2.y ).toBe( -3.0 );
+});
+
+it('should get inversed vec2 when call inverse method', () => {
+  const vec2 = new Vec2({ x: 2.0, y: -1.0 });
+  vec2.inverse();
+
+  expect( vec2.x ).toBe( 0.5 );
+  expect( vec2.y ).toBe( -1.0 );
 });

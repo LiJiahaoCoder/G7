@@ -285,4 +285,16 @@ export default class Vec2 {
 
     return this;
   }
+
+  /**
+   * Returns the inverse of the values of a vec2
+   *
+   * @returns {Vec2} Vec2
+   */
+  public inverse (): Vec2 {
+    return this.set(
+      numeral( 1.0 ).divide( this.x ).value(),
+      numeral( 1.0 ).divide( this.y ).value(),
+    );
+  }
 }
