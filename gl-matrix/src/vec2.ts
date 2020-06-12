@@ -50,64 +50,64 @@ export default class Vec2 {
   /**
    * Adds two vec2s
    *
-   * @param {Vec2} vec2 Vec2 to be added
-   * @param {Vec2} anotherVec2 Another vec2 to be added
+   * @param {Vec2} v1 Vec2 to be added
+   * @param {Vec2} v2 Another vec2 to be added
    * @returns {Vec2} Result of adding two vec2s
    */
-  static add ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+  static add ( v1: Vec2, v2: Vec2 ): Vec2 {
     const res = new Vec2();
 
     return res.set(
-      vec2.elements[ 0 ] + anotherVec2.elements[ 0 ],
-      vec2.elements[ 1 ] + anotherVec2.elements[ 1 ],
+      v1.elements[ 0 ] + v2.elements[ 0 ],
+      v1.elements[ 1 ] + v2.elements[ 1 ],
     );
   }
 
   /**
    * Subtracts vec2 from another vec2
    *
-   * @param {Vec2} vec2 Vec2 to subtract
-   * @param {Vec2} anotherVec2 Vec2 to be subtracted
+   * @param {Vec2} v1 Vec2 to subtract
+   * @param {Vec2} v2 Vec2 to be subtracted
    * @returns {Vec2} Result of subtracting two vec2s
    */
-  static subtract ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+  static subtract ( v1: Vec2, v2: Vec2 ): Vec2 {
     const res = new Vec2();
 
     return res.set(
-      vec2.elements[ 0 ] - anotherVec2.elements[ 0 ],
-      vec2.elements[ 1 ] - anotherVec2.elements[ 1 ],
+      v1.elements[ 0 ] - v2.elements[ 0 ],
+      v1.elements[ 1 ] - v2.elements[ 1 ],
     );
   }
 
   /**
    * Multiply vec2 with another vec2
    *
-   * @param {Vec2} vec2 Vec2 to multiply
-   * @param {Vec2} anotherVec2 Vec2 to be multiplied
+   * @param {Vec2} v1 Vec2 to multiply
+   * @param {Vec2} v2 Vec2 to be multiplied
    * @returns {Vec2} Result of multiplying two vec2s
    */
-  static multiply ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+  static multiply ( v1: Vec2, v2: Vec2 ): Vec2 {
     const res = new Vec2();
 
     return res.set(
-      vec2.elements[ 0 ] * anotherVec2.elements[ 0 ],
-      vec2.elements[ 1 ] * anotherVec2.elements[ 1 ],
+      v1.elements[ 0 ] * v2.elements[ 0 ],
+      v1.elements[ 1 ] * v2.elements[ 1 ],
     );
   }
 
   /**
    * Divide vec2 with another vec2
    *
-   * @param {Vec2} vec2 Vec2 to divide
-   * @param {Vec2} anotherVec2 Vec2 to be divided
+   * @param {Vec2} v1 Vec2 to divide
+   * @param {Vec2} v2 Vec2 to be divided
    * @returns {Vec2} Result of dividing two vec2s
    */
-  static divide ( vec2: Vec2, anotherVec2: Vec2 ): Vec2 {
+  static divide ( v1: Vec2, v2: Vec2 ): Vec2 {
     const res = new Vec2();
 
     return res.set(
-      vec2.elements[ 0 ] / anotherVec2.elements[ 0 ],
-      vec2.elements[ 1 ] / anotherVec2.elements[ 1 ],
+      v1.elements[ 0 ] / v2.elements[ 0 ],
+      v1.elements[ 1 ] / v2.elements[ 1 ],
     );
   }
 
