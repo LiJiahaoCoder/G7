@@ -225,3 +225,20 @@ it('should get normalized vec2 when call normalize method', () => {
   expect( equal( vec2.x, 0.6 ) ).toBeTruthy();
   expect( equal( vec2.y, -0.8 ) ).toBeTruthy();
 });
+
+it('should get zero vec2 when call normalize method given a zero vec2', () => {
+  const vec2 = new Vec2();
+  vec2.normalize();
+
+  expect( vec2.x ).toBe( 0.0 );
+  expect( vec2.y ).toBe( 0.0 );
+});
+
+it('should get dot result when call dot method given 2 specified vec2', () => {
+  const v1 = new Vec2({ x: 1.0, y: 2.0 });
+  const v2 = new Vec2({ x: -9.0, y: 5.2 });
+
+  const res = Vec2.dot( v1, v2 );
+
+  expect( equal( res, 1.4 ) ).toBeTruthy();
+});

@@ -175,6 +175,21 @@ export default class Vec2 {
   }
 
   /**
+   * Calculates the dot result of two vec2s
+   *
+   * @param {Vec2} v1 First Vec2
+   * @param {Vec2} v2 Second vec2
+   * @returns {number} Result of dotting v1 and v2
+   */
+  static dot ( v1: Vec2, v2: Vec2 ): number {
+    return numeral( v1.x )
+      .multiply( v2.x )
+      .add(
+        numeral( v1.y ).multiply( v2.y ).value(),
+      ).value();
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value

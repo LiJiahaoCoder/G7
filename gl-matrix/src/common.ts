@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-export const EPCILON = 0.0000001;
+export const EPCILON = 0.000001;
 
 export let ARRAY = ( typeof Float32Array !== 'undefined' ) ? Float32Array : Array;
 
