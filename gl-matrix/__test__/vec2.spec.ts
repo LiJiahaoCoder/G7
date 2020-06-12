@@ -15,6 +15,13 @@ it('should get correct x and y value', () => {
   expect( vec2.y ).toBe( 0.0 );
 });
 
+it('should get correct length of a vec2', () => {
+  const vec2 = new Vec2();
+  vec2.set( 3.0, 4.0 );
+
+  expect( vec2.length ).toBe( 5.0 );
+});
+
 it('should get [10.0, 0.0] when call setX method given a new vec2', () => {
   const vec2 = new Vec2();
   vec2.setX( 10.0 );

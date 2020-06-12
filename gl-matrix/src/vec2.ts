@@ -30,6 +30,16 @@ export default class Vec2 {
   }
 
   /**
+   * Calculates the length of a vec2
+   *
+   * @readonly
+   * @type {number}
+   */
+  get length (): number {
+    return Math.sqrt( this.x * this.x + this.y * this.y );
+  }
+
+  /**
    * Create a new vec2 initialized with values from source vec2
    *
    * @param {Vec2} source
