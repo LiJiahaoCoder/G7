@@ -200,3 +200,12 @@ it('should get distance of two vec2s when call distance method', () => {
 
   expect( distance ).toBe( 5.0 );
 });
+
+it('should get negative vec2 when call negate method', () => {
+  const vec2 = new Vec2();
+  vec2.set( -2.0, 3.0 );
+  vec2.negate();
+
+  expect( vec2.x ).toBe( 2.0 );
+  expect( vec2.y ).toBe( -3.0 );
+});

@@ -1,3 +1,4 @@
+import numeral from 'numeral';
 import { ARRAY } from './common';
 
 export default class Vec2 {
@@ -88,8 +89,8 @@ export default class Vec2 {
     const res = new Vec2();
 
     return res.set(
-      v1.x + v2.x,
-      v1.y + v2.y,
+      numeral( v1.x ).add( v2.x ).value(),
+      numeral( v1.y ).add( v2.y ).value(),
     );
   }
 
@@ -104,8 +105,8 @@ export default class Vec2 {
     const res = new Vec2();
 
     return res.set(
-      v1.x - v2.x,
-      v1.y - v2.y,
+      numeral( v1.x ).subtract( v2.x ).value(),
+      numeral( v1.y ).subtract( v2.y ).value(),
     );
   }
 
@@ -120,8 +121,8 @@ export default class Vec2 {
     const res = new Vec2();
 
     return res.set(
-      v1.x * v2.x,
-      v1.y * v2.y,
+      numeral( v1.x ).multiply( v2.x ).value(),
+      numeral( v1.y ).multiply( v2.y ).value(),
     );
   }
 
@@ -136,8 +137,8 @@ export default class Vec2 {
     const res = new Vec2();
 
     return res.set(
-      v1.x / v2.x,
-      v1.y / v2.y,
+      numeral( v1.x ).divide( v2.x ).value(),
+      numeral( v1.y ).divide( v2.y ).value(),
     );
   }
 
@@ -152,8 +153,8 @@ export default class Vec2 {
   static scale ( vec2: Vec2, scale: number ): Vec2 {
     const res = new Vec2();
     res.set(
-      vec2.x * scale,
-      vec2.y * scale,
+      numeral( vec2.x ).multiply( scale ).value(),
+      numeral( vec2.y ).multiply( scale ).value(),
     );
 
     return res;
@@ -167,8 +168,8 @@ export default class Vec2 {
    * @returns {number} Distance of two vec2s
    */
   static distance ( v1: Vec2, v2: Vec2 ): number {
-    const x = v1.x - v2.x;
-    const y = v1.y - v2.y;
+    const x = numeral( v1.x ).subtract( v2.x ).value();
+    const y = numeral( v1.y ).subtract( v2.y ).value();
 
     return Math.sqrt( x * x + y * y );
   }
@@ -216,8 +217,8 @@ export default class Vec2 {
    */
   public add ( vec2: Vec2 ): Vec2 {
     return this.set(
-      this.elements[ 0 ] + vec2.x,
-      this.elements[ 1 ] + vec2.y,
+      numeral( this.x ).add( vec2.x ).value(),
+      numeral( this.y ).add( vec2.y ).value(),
     );
   }
 
@@ -229,8 +230,8 @@ export default class Vec2 {
    */
   public subtract ( vec2: Vec2 ): Vec2 {
     return this.set(
-      this.elements[ 0 ] - vec2.x,
-      this.elements[ 1 ] - vec2.y,
+      numeral( this.x ).subtract( vec2.x ).value(),
+      numeral( this.y ).subtract( vec2.y ).value(),
     );
   }
 
@@ -242,8 +243,8 @@ export default class Vec2 {
    */
   public multiply ( vec2: Vec2 ): Vec2 {
     return this.set(
-      this.elements[ 0 ] * vec2.x,
-      this.elements[ 1 ] * vec2.y,
+      numeral( this.x ).multiply( vec2.x ).value(),
+      numeral( this.y ).multiply( vec2.y ).value(),
     );
   }
 
@@ -255,8 +256,8 @@ export default class Vec2 {
    */
   public divide ( vec2: Vec2 ): Vec2 {
     return this.set(
-      this.elements[ 0 ] / vec2.x,
-      this.elements[ 1 ] / vec2.y,
+      numeral( this.x ).divide( vec2.x ).value(),
+      numeral( this.y ).divide( vec2.y ).value(),
     );
   }
 
@@ -267,8 +268,20 @@ export default class Vec2 {
    * @returns {Vec2} Vec2
    */
   public scale ( scale: number ): Vec2 {
-    this.elements[ 0 ] = this.elements[ 0 ] * scale;
-    this.elements[ 1 ] = this.elements[ 1 ] * scale;
+    this.elements[ 0 ] = numeral( this.x ).multiply( scale ).value();
+    this.elements[ 1 ] = numeral( this.y ).multiply( scale ).value();
+
+    return this;
+  }
+
+  /**
+   * Negates the values of a vec2
+   *
+   * @returns {Vec2} Vec2
+   */
+  public negate (): Vec2 {
+    this.elements[ 0 ] = -this.x;
+    this.elements[ 1 ] = -this.y;
 
     return this;
   }
