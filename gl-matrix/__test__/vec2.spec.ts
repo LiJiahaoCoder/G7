@@ -178,3 +178,12 @@ it('should get result of scaling a vec2 when call static scale method given a ve
   expect( res.x ).toBe( 6.0 );
   expect( res.y ).toBe( 8.0 );
 });
+
+it('should get distance of two vec2s when call distance method', () => {
+  const v1 = new Vec2();
+  const v2 = new Vec2();
+  v2.set( 3.0, 4.0 );
+  const distance = Vec2.distance( v1, v2 );
+
+  expect( distance ).toBe( 5.0 );
+});

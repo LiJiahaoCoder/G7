@@ -150,6 +150,20 @@ export default class Vec2 {
   }
 
   /**
+   * Calculates the euclidian distance between two vec2s
+   *
+   * @param {Vec2} v1 First vec2
+   * @param {Vec2} v2 Second vec2
+   * @returns {number} Distance of two vec2s
+   */
+  static distance ( v1: Vec2, v2: Vec2 ): number {
+    const x = v1.x - v2.x;
+    const y = v1.y - v2.y;
+
+    return Math.sqrt( x * x + y * y );
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
