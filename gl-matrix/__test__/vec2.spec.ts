@@ -252,3 +252,9 @@ it('should get lerped result when call lerp method given 2 specified vec2', () =
   expect( res.x ).toBe( 0.0 );
   expect( equal( res.y, 2.8 ) ).toBeTruthy();
 });
+
+it('should get a vec2 with scale length when call random method', () => {
+  const res = Vec2.random( 2.0 );
+
+  expect( equal( res.length, 2.0 ) ).toBeTruthy();
+});

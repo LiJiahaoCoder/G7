@@ -209,6 +209,21 @@ export default class Vec2 {
   }
 
   /**
+   * Generates a random vector with the given scale
+   *
+   * @param {number} scale Length of the resulting vector. If ommitted, a unit vector will be returned
+   * @returns {Vec2} Vec2
+   */
+  static random ( scale: number = 1.0 ): Vec2 {
+    const r = Math.random() * 2.0 * Math.PI;
+
+    return new Vec2({
+      x: Math.cos(r) * scale,
+      y: Math.sin(r) * scale,
+    });
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
