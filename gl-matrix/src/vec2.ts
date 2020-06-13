@@ -190,6 +190,25 @@ export default class Vec2 {
   }
 
   /**
+   * Performs a linear interpolation between two vec2s
+   *
+   * @param {Vec2} v1 First vec2
+   * @param {Vec2} v2 Second vec2
+   * @param {number} delta Interpolation amount, in the range [0-1]
+   * @returns {Vec2} Vec2
+   */
+  static lerp ( v1: Vec2, v2: Vec2, delta: number): Vec2 {
+    return new Vec2({
+      x: numeral( v1.x ).add(
+        delta * numeral( v2.x ).subtract( v1.x ).value(),
+      ).value(),
+      y: numeral( v1.y ).add(
+        delta * numeral( v2.y ).subtract( v1.y ).value(),
+      ).value(),
+    });
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value

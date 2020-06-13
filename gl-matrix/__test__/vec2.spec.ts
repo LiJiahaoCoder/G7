@@ -242,3 +242,13 @@ it('should get dot result when call dot method given 2 specified vec2', () => {
 
   expect( equal( res, 1.4 ) ).toBeTruthy();
 });
+
+it('should get lerped result when call lerp method given 2 specified vec2', () => {
+  const v1 = new Vec2({ x: 1.0, y: 2.0 });
+  const v2 = new Vec2({ x: -9.0, y: 10.0 });
+
+  const res = Vec2.lerp( v1, v2, 0.1 );
+
+  expect( res.x ).toBe( 0.0 );
+  expect( equal( res.y, 2.8 ) ).toBeTruthy();
+});
