@@ -277,3 +277,21 @@ it('should get correct angle of 2 vec2s when call angle static method', () => {
 
   expect( equal( angle, 45.0 ) ).toBeTruthy();
 });
+
+it('should get true when compare two exactly equal vec2s', () => {
+  const v1 = new Vec2({ x: 1.0, y: 3.0 });
+  const v2 = Vec2.clone( v1 );
+
+  const res = Vec2.exactEquals( v1, v2 );
+
+  expect( res ).toBeTruthy();
+});
+
+it('should get false when compare two different vec2s', () => {
+  const v1 = new Vec2();
+  const v2 = new Vec2({ x: 1.0, y: 0.0 });
+
+  const res = Vec2.exactEquals( v1, v2 );
+
+  expect( res ).toBeFalsy();
+});
