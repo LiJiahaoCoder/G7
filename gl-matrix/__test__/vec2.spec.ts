@@ -329,3 +329,21 @@ it('should get false when compare two different vec2s', () => {
 
   expect( res ).toBeFalsy();
 });
+
+it('should get true when compare two approximately equal vec2', () => {
+  const v1 = new Vec2();
+  const v2 = new Vec2({ x: 0.0000001, y: 0.0 });
+
+  const res = Vec2.equals( v1, v2 );
+
+  expect( res ).toBeTruthy();
+});
+
+it('should get false when compare two not approximately equal vec2', () => {
+  const v1 = new Vec2();
+  const v2 = new Vec2({ x: 0.000099, y: 0.0 });
+
+  const res = Vec2.equals( v1, v2 );
+
+  expect( res ).toBeFalsy();
+});
