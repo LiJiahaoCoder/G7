@@ -258,3 +258,13 @@ it('should get a vec2 with scale length when call random method', () => {
 
   expect( equal( res.length, 2.0 ) ).toBeTruthy();
 });
+
+it('should get rotated vec2 when call rotate method', () => {
+  const vec2 = new Vec2({ x: 1.0, y: 1.0 });
+  const angle = 45.0;
+
+  vec2.rotate( angle );
+
+  expect( vec2.x ).toBe( 0.0 );
+  expect( vec2.y ).toBe( vec2.length );
+});

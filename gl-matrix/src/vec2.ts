@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { ARRAY } from './common';
+import { toRadian, ARRAY } from './common';
 
 export default class Vec2 {
   public readonly elements: ArrayType;
@@ -359,6 +359,27 @@ export default class Vec2 {
         numeral( this.y ).divide( this.length ).value(),
       );
     }
+
+    return this;
+  }
+
+  /**
+   * Rotate a 2D vector
+   *
+   * @param {number} angle The angle of rotation with degree
+   * @param {Vec2} [origin=new Vec2()] The origin of the rotation
+   * @returns {Vec2} Vec2
+   */
+  public rotate ( angle: number, origin: Vec2 = new Vec2() ): Vec2 {
+    const sin = Math.sin( toRadian( angle ) );
+    const cos = Math.cos( toRadian( angle ) );
+    const deltaX = this.x - origin.x;
+    const deltaY = this.y - origin.y;
+
+    this.set(
+      numeral( deltaX * cos ).subtract( deltaY * sin ).add( origin.x ).value(),
+      numeral( deltaX * sin ).add( deltaY * cos ).add( origin.y ).value(),
+    );
 
     return this;
   }
