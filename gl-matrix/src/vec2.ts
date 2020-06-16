@@ -47,10 +47,10 @@ export default class Vec2 {
    * @returns {Vec2} New vec2
    */
   static clone ( source: Vec2 ): Vec2 {
-    const cloned = new Vec2();
-    cloned.set( source.elements[0], source.elements[1] );
-
-    return cloned;
+    return new Vec2({
+      x: source.x,
+      y: source.y,
+    });
   }
 
   /**
