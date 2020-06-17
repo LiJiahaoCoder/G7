@@ -55,4 +55,52 @@ export default class Vec3 {
       z: source.z,
     });
   }
+
+  /**
+   * Set new value of vector
+   *
+   * @param {number} x New x value
+   * @param {number} y New y value
+   * @param {number} z New z value
+   * @returns {Vec3} Vec3
+   */
+  public set ( x: number, y: number, z: number ): Vec3 {
+    return this.setX( x ).setY( y ).setZ( z );
+  }
+
+  /**
+   * Set new x value of vec3
+   *
+   * @param {number} x New x value
+   * @returns {Vec3} Vec3
+   */
+  public setX ( x: number ): Vec3 {
+    this.elements[ 0 ] = x;
+
+    return this;
+  }
+
+  /**
+   * Set new y value of vec3
+   *
+   * @param {number} y New y value
+   * @returns {Vec3} Vec3
+   */
+  public setY ( y: number ): Vec3 {
+    this.elements[ 1 ] = y;
+
+    return this;
+  }
+
+  /**
+   * Set new z value of vec2
+   *
+   * @param {number} z New z value
+   * @returns {Vec3} Vec3
+   */
+  public setZ ( z: number ): Vec3 {
+    this.elements[ 2 ] = z;
+
+    return this;
+  }
 }

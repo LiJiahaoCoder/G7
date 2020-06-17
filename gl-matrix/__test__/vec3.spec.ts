@@ -25,4 +25,34 @@ describe('Tests of vec3', () => {
     expect( source.y ).toBe( cloned.y );
     expect( source.z ).toBe( cloned.z );
   });
+
+  it('should get correct value when set new value', () => {
+    const vec3 = new Vec3();
+    vec3.set( 1.0, 2.0, 3.0);
+
+    expect( vec3.x ).toBe( 1.0 );
+    expect( vec3.y ).toBe( 2.0 );
+    expect( vec3.z ).toBe( 3.0 );
+  });
+
+  it('should get correct value of x when setX', () => {
+    const vec3 = new Vec3();
+    vec3.setX( 5.0 );
+
+    expect( vec3.x ).toBe( 5.0 );
+  });
+
+  it('should get correct value of y when setY', () => {
+    const vec3 = new Vec3();
+    vec3.setY( 1.0 );
+
+    expect( vec3.y ).toBe( 1.0 );
+  });
+
+  it('should get correct value of z when setZ', () => {
+    const vec3 = new Vec3();
+    vec3.setZ( 6.0 );
+
+    expect( vec3.z ).toBe( 6.0 );
+  });
 });
