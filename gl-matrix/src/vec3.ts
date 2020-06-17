@@ -57,6 +57,17 @@ export default class Vec3 {
   }
 
   /**
+   * Copy values from source vec3 to target vec3
+   *
+   * @param {Vec2} target Target vec3
+   * @param {Vec2} source Source vec3
+   * @returns {Vec2} Target vec3
+   */
+  static copy ( target: Vec3, source: Vec3 ): Vec3 {
+    return target.set( source.x, source.y, source.z );
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value

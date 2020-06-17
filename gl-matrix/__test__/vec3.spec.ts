@@ -55,4 +55,15 @@ describe('Tests of vec3', () => {
 
     expect( vec3.z ).toBe( 6.0 );
   });
+
+  it('should get copied vec3 when call copy static method', () => {
+    const source = new Vec3({ x: 2.2, y: 2.8, z: 7.1 });
+    const target = new Vec3();
+
+    Vec3.copy( target, source );
+
+    expect( target.x ).toBe( source.x );
+    expect( target.y ).toBe( source.y );
+    expect( target.z ).toBe( source.z );
+  });
 });

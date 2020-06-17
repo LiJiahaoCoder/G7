@@ -68,7 +68,7 @@ export default class Vec2 {
   }
 
   /**
-   * Copy value2 from source vec2 to target vec2
+   * Copy values from source vec2 to target vec2
    *
    * @param {Vec2} target Target vec2
    * @param {Vec2} source Source vec2
