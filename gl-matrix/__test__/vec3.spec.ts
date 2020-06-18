@@ -66,4 +66,26 @@ describe('Tests of vec3', () => {
     expect( target.y ).toBe( source.y );
     expect( target.z ).toBe( source.z );
   });
+
+  it('should get added vec3 when call add method', () => {
+    const v1 = new Vec3();
+    const v2 = new Vec3({ x: 1.0, y: 4.0, z: 3.0 });
+
+    v1.add( v2 );
+
+    expect( v1.x ).toBe( 1.0 );
+    expect( v1.y ).toBe( 4.0 );
+    expect( v1.z ).toBe( 3.0 );
+  });
+
+  it('should get a new added vec3 when call add static method', () => {
+    const v1 = new Vec3();
+    const v2 = new Vec3({ x: 1.0, y: 4.0, z: 3.0 });
+
+    const res = Vec3.add( v1, v2 );
+
+    expect( res.x ).toBe( 1.0 );
+    expect( res.y ).toBe( 4.0 );
+    expect( res.z ).toBe( 3.0 );
+  });
 });

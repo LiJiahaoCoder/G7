@@ -1,5 +1,5 @@
+import numeral from 'numeral';
 import { ARRAY } from './common';
-import Vec2 from './vec2';
 
 export default class Vec3 {
   public readonly elements: ArrayType;
@@ -68,6 +68,21 @@ export default class Vec3 {
   }
 
   /**
+   * Adds two vec3s
+   *
+   * @param {Vec3} v1 Vec3 to be added
+   * @param {Vec3} v2 Another vec3 to be added
+   * @returns {Vec3} New vec3
+   */
+  static add ( v1: Vec3, v2: Vec3 ): Vec3 {
+    return new Vec3({
+      x: numeral( v1.x ).add( v2.x ).value(),
+      y: numeral( v1.y ).add( v2.y ).value(),
+      z: numeral( v1.z ).add( v2.z ).value(),
+    });
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
@@ -113,5 +128,19 @@ export default class Vec3 {
     this.elements[ 2 ] = z;
 
     return this;
+  }
+
+  /**
+   * Add a vec3
+   *
+   * @param {Vec3} vec3 Received vec3 to add
+   * @returns {Vec3} Vec3
+   */
+  public add ( vec3: Vec3 ): Vec3 {
+    return this.set(
+      numeral( this.x ).add( vec3.x ).value(),
+      numeral( this.y ).add( vec3.y ).value(),
+      numeral( this.z ).add( vec3.z ).value(),
+    );
   }
 }
