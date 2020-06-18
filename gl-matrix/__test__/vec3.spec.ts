@@ -200,4 +200,14 @@ describe('Tests of vec3', () => {
     expect( equal( vec3.y, 1.0 / 3.0 ) ).toBeTruthy();
     expect( equal( vec3.z, 0.25 ) ).toBeTruthy();
   });
+
+  it('should get normalized vec3 when call normalize method', () => {
+    const vec3 = new Vec3({ x: 1.0, y: 2.0, z: 2.0 });
+
+    vec3.normalize();
+
+    expect( equal( vec3.x, 1.0 / 3.0 ) ).toBeTruthy();
+    expect( equal( vec3.y, 2.0 / 3.0 ) ).toBeTruthy();
+    expect( equal( vec3.z, 2.0 / 3.0 ) ).toBeTruthy();
+  });
 });

@@ -311,4 +311,21 @@ export default class Vec3 {
       numeral( 1.0 ).divide( this.z ).value(),
     );
   }
+
+  /**
+   * Normalize a vec3
+   *
+   * @returns {Vec3} Vec3
+   */
+  public normalize (): Vec3 {
+    if ( this.length > 0 ) {
+      this.set(
+        numeral( this.x ).divide( this.length ).value(),
+        numeral( this.y ).divide( this.length ).value(),
+        numeral( this.z ).divide( this.length ).value(),
+      );
+    }
+
+    return this;
+  }
 }
