@@ -155,4 +155,10 @@ describe('Tests of vec3', () => {
     expect( equal( res.y, 2.0) ).toBeTruthy();
     expect( equal( res.z, 1.0) ).toBeTruthy();
   });
+
+  it('should get correct length of a vec3', () => {
+    const vec3 = new Vec3({ x: 1.0, y: 2.0, z: 2.0 });
+
+    expect( equal( vec3.length, 3.0 ) ).toBeTruthy();
+  });
 });

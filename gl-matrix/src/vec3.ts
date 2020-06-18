@@ -42,6 +42,18 @@ export default class Vec3 {
   }
 
   /**
+   * Calculates the length of a vec3
+   *
+   * @readonly
+   * @type {number}
+   */
+  get length (): number {
+    const { x, y, z } = this;
+
+    return Math.sqrt( x * x + y * y + z * z );
+  }
+
+  /**
    * Create a new vec3 initialized with values from source vec3
    *
    * @static
