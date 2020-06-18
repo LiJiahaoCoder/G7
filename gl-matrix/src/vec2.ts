@@ -409,7 +409,7 @@ export default class Vec2 {
   public normalize (): Vec2 {
     if ( this.length > 0 ) {
       this.set(
-        this.x / this.length,
+        numeral( this.x ).divide( this.length ).value(),
         numeral( this.y ).divide( this.length ).value(),
       );
     }
