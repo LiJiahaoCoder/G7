@@ -190,4 +190,14 @@ describe('Tests of vec3', () => {
 
     expect( equal( distance, 3.0 ) ).toBeTruthy();
   });
+
+  it('should get inversed vec3 when call inverse method', () => {
+    const vec3 = new Vec3({ x: 1.0, y: 3.0, z: 4.0 });
+
+    vec3.inverse();
+
+    expect( equal( vec3.x, 1.0 ) ).toBeTruthy();
+    expect( equal( vec3.y, 1.0 / 3.0 ) ).toBeTruthy();
+    expect( equal( vec3.z, 0.25 ) ).toBeTruthy();
+  });
 });
