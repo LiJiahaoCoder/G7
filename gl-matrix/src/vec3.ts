@@ -180,6 +180,23 @@ export default class Vec3 {
   }
 
   /**
+   * Calculates the dot result of two vec3s
+   *
+   * @param {Vec3} v1 First Vec3
+   * @param {Vec3} v2 Second vec3
+   * @returns {number} Result of dotting v1 and v2
+   */
+  static dot ( v1: Vec3, v2: Vec3 ): number {
+    return numeral( v1.x )
+      .multiply( v2.x )
+      .add(
+        numeral( v1.y ).multiply( v2.y ).value(),
+      ).add(
+        numeral( v1.z ).multiply( v2.z ).value(),
+      ).value();
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value

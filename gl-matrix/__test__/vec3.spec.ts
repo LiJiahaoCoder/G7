@@ -210,4 +210,13 @@ describe('Tests of vec3', () => {
     expect( equal( vec3.y, 2.0 / 3.0 ) ).toBeTruthy();
     expect( equal( vec3.z, 2.0 / 3.0 ) ).toBeTruthy();
   });
+
+  it('should get dotted result when call dot method', () => {
+    const v1 = new Vec3({ x: 1.0, y: 2.0, z: 2.0 });
+    const v2 = new Vec3({ x: 0.8, y: -6.0, z: 1.0 });
+
+    const res = Vec3.dot( v1, v2 );
+
+    expect( equal( res, -9.2 ) ).toBeTruthy();
+  });
 });
