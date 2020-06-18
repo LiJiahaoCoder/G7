@@ -90,7 +90,7 @@ describe('Tests of vec3', () => {
     expect( res.z ).toBe( 3.0 );
   });
 
-  it('should get added vec3 when call subtract method', () => {
+  it('should get subtracted vec3 when call subtract method', () => {
     const v1 = new Vec3();
     const v2 = new Vec3({ x: 1.0, y: 4.0, z: 3.0 });
 
@@ -101,7 +101,7 @@ describe('Tests of vec3', () => {
     expect( v1.z ).toBe( -3.0 );
   });
 
-  it('should get a new added vec3 when call subtract static method', () => {
+  it('should get a new subtracted vec3 when call subtract static method', () => {
     const v1 = new Vec3();
     const v2 = new Vec3({ x: 1.0, y: 4.0, z: 3.0 });
 
@@ -112,7 +112,7 @@ describe('Tests of vec3', () => {
     expect( res.z ).toBe( -3.0 );
   });
 
-  it('should get multiply vec3 when call subtract method', () => {
+  it('should get multiplied vec3 when call multiply method', () => {
     const v1 = new Vec3({ x: 2.0, y: 0.2, z: -1.0 });
     const v2 = new Vec3({ x: 1.0, y: 4.0, z: 3.0 });
 
@@ -123,7 +123,7 @@ describe('Tests of vec3', () => {
     expect( equal( v1.z, -3.0) ).toBeTruthy();
   });
 
-  it('should get a new multiply vec3 when call subtract static method', () => {
+  it('should get a new multiplied vec3 when call multiply static method', () => {
     const v1 = new Vec3({ x: 2.0, y: 0.2, z: -1.0 });
     const v2 = new Vec3({ x: 1.0, y: 4.0, z: 3.0 });
 
@@ -132,5 +132,27 @@ describe('Tests of vec3', () => {
     expect( equal( res.x, 2.0) ).toBeTruthy();
     expect( equal( res.y, 0.8) ).toBeTruthy();
     expect( equal( res.z, -3.0) ).toBeTruthy();
+  });
+
+  it('should get divided vec3 when call divede method', () => {
+    const v1 = new Vec3({ x: 2.0, y: 0.2, z: -1.0 });
+    const v2 = new Vec3({ x: 1.0, y: 0.1, z: -1.0 });
+
+    v1.divide( v2 );
+
+    expect( equal( v1.x, 2.0) ).toBeTruthy();
+    expect( equal( v1.y, 2.0) ).toBeTruthy();
+    expect( equal( v1.z, 1.0) ).toBeTruthy();
+  });
+
+  it('should get a new divided vec3 when call divede static method', () => {
+    const v1 = new Vec3({ x: 2.0, y: 0.2, z: -1.0 });
+    const v2 = new Vec3({ x: 1.0, y: 0.1, z: -1.0 });
+
+    const res = Vec3.divide( v1, v2 );
+
+    expect( equal( res.x, 2.0) ).toBeTruthy();
+    expect( equal( res.y, 2.0) ).toBeTruthy();
+    expect( equal( res.z, 1.0) ).toBeTruthy();
   });
 });

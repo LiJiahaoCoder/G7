@@ -117,6 +117,23 @@ export default class Vec3 {
   }
 
   /**
+   * Divide vec3 with another vec3
+   *
+   * @param {Vec3} v1 Vec3 to divide
+   * @param {Vec3} v2 Vec3 to be divided
+   * @returns {Vec3} Result of dividing two vec3s
+   */
+  static divide ( v1: Vec3, v2: Vec3 ): Vec3 {
+    const res = new Vec3();
+
+    return res.set(
+      numeral( v1.x ).divide( v2.x ).value(),
+      numeral( v1.y ).divide( v2.y ).value(),
+      numeral( v1.z ).divide( v2.z ).value(),
+    );
+  }
+
+  /**
    * Set new value of vector
    *
    * @param {number} x New x value
@@ -203,6 +220,20 @@ export default class Vec3 {
       numeral( this.x ).multiply( vec3.x ).value(),
       numeral( this.y ).multiply( vec3.y ).value(),
       numeral( this.z ).multiply( vec3.z ).value(),
+    );
+  }
+
+  /**
+   * Divide curren vec3 from another vec3
+   *
+   * @param {Vec3} vec3 Received vec3 to be divided
+   * @returns {Vec3} Vec3
+   */
+  public divide ( vec3: Vec3 ): Vec3 {
+    return this.set(
+      numeral( this.x ).divide( vec3.x ).value(),
+      numeral( this.y ).divide( vec3.y ).value(),
+      numeral( this.z ).divide( vec3.z ).value(),
     );
   }
 }
