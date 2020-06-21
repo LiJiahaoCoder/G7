@@ -1,5 +1,6 @@
 import numeral from 'numeral';
 import { equal, toDegree, toRadian, ARRAY } from './common';
+import Vec3 from './vec3';
 
 export default class Vec2 {
   public readonly elements: ArrayType;
@@ -187,6 +188,24 @@ export default class Vec2 {
       .add(
         numeral( v1.y ).multiply( v2.y ).value(),
       ).value();
+  }
+
+  /**
+   * Computes the cross product of two vec2s
+   *
+   * @param {vec2} a Firset vec2
+   * @param {vec2} b Second vec2
+   * @returns {vec2} New vec2
+   */
+   static cross ( v1: Vec2, v2: Vec2 ): Vec3 {
+    const { x: x1, y: y1 } = v1;
+    const { x: x2, y: y2 } = v2;
+
+    return new Vec3({
+      x: 0.0,
+      y: 0.0,
+      z: numeral( x1 * y2 ).subtract( x2 * y1 ).value(),
+    });
   }
 
   /**

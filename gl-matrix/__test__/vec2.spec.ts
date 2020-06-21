@@ -348,4 +348,15 @@ describe('Tests of vec2', () => {
 
     expect( res ).toBeFalsy();
   });
+
+  it('should get corret cross dot result when call cross static method', () => {
+    const v1 = new Vec2({ x: 1.0, y: 2.0 });
+    const v2 = new Vec2({ x: 0.3, y: -1.8 });
+
+    const res = Vec2.cross( v1, v2 );
+
+    expect( res.x ).toBe( 0 );
+    expect( res.y ).toBe( 0 );
+    expect( equal( res.z, -2.4 ) ).toBeTruthy();
+  });
 });
