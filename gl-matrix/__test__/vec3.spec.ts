@@ -230,4 +230,15 @@ describe('Tests of vec3', () => {
     expect( equal( res.y, -5.3 ) ).toBeTruthy();
     expect( equal( res.z, 3.1 ) ).toBeTruthy();
   });
+
+  it('should get correct lerpped vec3 when call lerp method', () => {
+    const v1 = new Vec3();
+    const v2 = new Vec3({ x: 1.0, y: 5.0, z: 2.0 });
+
+    const res = Vec3.lerp( v1, v2, 0.5 );
+
+    expect( equal( res.x, 0.5 ) ).toBeTruthy();
+    expect( equal( res.y, 2.5 ) ).toBeTruthy();
+    expect( equal( res.z, 1.0 ) ).toBeTruthy();
+  });
 });
