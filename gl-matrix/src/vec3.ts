@@ -187,13 +187,30 @@ export default class Vec3 {
    * @returns {number} Result of dotting v1 and v2
    */
   static dot ( v1: Vec3, v2: Vec3 ): number {
-    return numeral( v1.x )
-      .multiply( v2.x )
+    return numeral( v1.x * v2.x )
       .add(
-        numeral( v1.y ).multiply( v2.y ).value(),
+        v1.y * v2.y,
       ).add(
-        numeral( v1.z ).multiply( v2.z ).value(),
+        v1.z * v2.z,
       ).value();
+  }
+
+  /**
+   * Computes the cross product of two vec3s
+   *
+   * @param {vec3} a Firset vec3
+   * @param {vec3} b Second vec3
+   * @returns {vec3} New vec3
+   */
+  static cross ( v1: Vec3, v2: Vec3 ): Vec3 {
+    const { x: x1, y: y1, z: z1 } = v1;
+    const { x: x2, y: y2, z: z2 } = v2;
+
+    return new Vec3({
+      x: numeral( y1 * z2 ).subtract( z1 * y2 ).value(),
+      y: numeral( z1 * x2 ).subtract( x1 * z2 ).value(),
+      z: numeral( x1 * y2 ).subtract( y1 * x2 ).value(),
+    });
   }
 
   /**

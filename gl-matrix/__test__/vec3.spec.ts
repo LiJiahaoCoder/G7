@@ -219,4 +219,15 @@ describe('Tests of vec3', () => {
 
     expect( equal( res, -9.2 ) ).toBeTruthy();
   });
+
+  it('should get cross dot result when call cross method', () => {
+    const v1 = new Vec3({ x: 1.0, y: 2.0, z: 3.0 });
+    const v2 = new Vec3({ x: -1.1, y: 0.9, z: 2.0 });
+
+    const res = Vec3.cross( v1, v2 );
+
+    expect( equal( res.x, 1.3 ) ).toBeTruthy();
+    expect( equal( res.y, -5.3 ) ).toBeTruthy();
+    expect( equal( res.z, 3.1 ) ).toBeTruthy();
+  });
 });
