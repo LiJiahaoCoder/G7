@@ -237,8 +237,8 @@ export default class Vec2 {
     const r = Math.random() * 2.0 * Math.PI;
 
     return new Vec2({
-      x: Math.cos(r) * scale,
-      y: Math.sin(r) * scale,
+      x: Math.cos( r ) * scale,
+      y: Math.sin( r ) * scale,
     });
   }
 

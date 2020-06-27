@@ -235,6 +235,26 @@ export default class Vec3 {
     });
   }
 
+  // TODO: static hermite and bezier
+
+  /**
+   * Generates a random vector with the given scale
+   *
+   * @param {number} scale Length of the resulting vector. If ommitted, a unit vector will be returned
+   * @returns {Vec3} Vec3
+   */
+  static random ( scale: number = 1.0 ): Vec3 {
+    const r = Math.random() * 2.0 * Math.PI;
+    const z = ( Math.random() * 2.0 ) - 1.0;
+    const zScale = Math.sqrt( 1.0 - z * z ) * scale;
+
+    return new Vec3({
+      x: Math.cos( r ) * zScale,
+      y: Math.sin( r ) * zScale,
+      z: z * scale,
+    });
+  }
+
   /**
    * Set new value of vector
    *

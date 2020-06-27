@@ -241,4 +241,18 @@ describe('Tests of vec3', () => {
     expect( equal( res.y, 2.5 ) ).toBeTruthy();
     expect( equal( res.z, 1.0 ) ).toBeTruthy();
   });
+
+  it('should get a random vec3 with scale length when call random method', () => {
+    const vec3 = Vec3.random( 2.0 );
+
+    expect( equal( vec3.length, 2.0 ) ).toBeTruthy();
+  });
+
+  it('should get a random vec3 when call static random method', () => {
+    const vec3 = Vec3.random( 2.0 );
+
+    expect( vec3.x <= 2.0 && vec3.x >= -2.0 ).toBeTruthy();
+    expect( vec3.y <= 2.0 && vec3.y >= -2.0 ).toBeTruthy();
+    expect( vec3.z <= 2.0 && vec3.z >= -2.0 ).toBeTruthy();
+  });
 });
