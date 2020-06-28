@@ -211,6 +211,16 @@ describe('Tests of vec3', () => {
     expect( equal( vec3.z, 2.0 / 3.0 ) ).toBeTruthy();
   });
 
+  it('should get origin vec3 when call normalize method and vec3 is 0', () => {
+    const vec3 = new Vec3({ x: 0.0, y: 0.0, z: 0.0 });
+
+    vec3.normalize();
+
+    expect( equal( vec3.x, 0.0 ) ).toBeTruthy();
+    expect( equal( vec3.y, 0.0 ) ).toBeTruthy();
+    expect( equal( vec3.z, 0.0 ) ).toBeTruthy();
+  });
+
   it('should get dotted result when call dot method', () => {
     const v1 = new Vec3({ x: 1.0, y: 2.0, z: 2.0 });
     const v2 = new Vec3({ x: 0.8, y: -6.0, z: 1.0 });
