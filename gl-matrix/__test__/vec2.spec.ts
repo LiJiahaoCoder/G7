@@ -254,6 +254,19 @@ describe('Tests of vec2', () => {
     expect( equal( res.y, 2.8 ) ).toBeTruthy();
   });
 
+  it('should get a vec2 without param length when call random method', () => {
+    const res = Vec2.random();
+
+    expect( equal( res.length, 1.0 ) ).toBeTruthy();
+  });
+
+  it('should get a random vec2 when call random static method without param', () => {
+    const vec2 = Vec2.random();
+
+    expect( vec2.x >= -1.0 && vec2.x <= 1.0 ).toBeTruthy();
+    expect( vec2.y >= -1.0 && vec2.y <= 1.0 ).toBeTruthy();
+  });
+
   it('should get a vec2 with scale length when call random method', () => {
     const res = Vec2.random( 2.0 );
 
