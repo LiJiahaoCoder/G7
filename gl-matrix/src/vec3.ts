@@ -465,4 +465,39 @@ export default class Vec3 {
       rotation.z + vec3.z,
     );
   }
+
+  /**
+   * Rotate a 3D vector around the y-axis
+   *
+   * @param {Vec3} vec3 The origin of the rotation
+   * @param {number} angle The angle of rotation
+   * @returns {Vec3} Vec3
+   */
+  public rotateY ( vec3: Vec3, angle: number ): Vec3 {
+    const origin: Vec3Constructor = {
+      x: 0,
+      y: 0,
+      z: 0,
+    };
+    const rotation: Vec3Constructor = {
+      x: 0,
+      y: 0,
+      z: 0,
+    };
+
+    // translate to origin
+    origin.x = this.x - vec3.x;
+    origin.y = this.y - vec3.y;
+    origin.z = this.z - vec3.z;
+
+    rotation.x = origin.z * Math.sin( angle ) + origin.x * Math.cos( angle );
+    rotation.y = origin.y;
+    rotation.z = origin.z * Math.cos( angle ) - origin.x * Math.sin( angle );
+
+    return this.set(
+      rotation.x + vec3.x,
+      rotation.y + vec3.y,
+      rotation.z + vec3.z,
+    );
+  }
 }
