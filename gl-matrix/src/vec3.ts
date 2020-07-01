@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { toDegree, toRadian, ARRAY } from './common';
+import { equal, toDegree, toRadian, ARRAY } from './common';
 
 export default class Vec3 {
   public readonly elements: ArrayType;
@@ -312,6 +312,17 @@ export default class Vec3 {
    */
   static exactEquals ( v1: Vec3, v2: Vec3 ): boolean {
     return v1.x === v2.x && v1.y === v2.y && v1.z === v2.z;
+  }
+
+  /**
+   * Returns whether or not the vectors have approximately the same elements in the same position.
+   *
+   * @param {Vec3} v1 First vec3
+   * @param {Vec3} v2 Second vec3
+   * @returns {boolean} True if the vectors are equal, false otherwise.
+   */
+  static equals ( v1: Vec3, v2: Vec3 ): boolean {
+    return equal( v1.x, v2.x ) && equal( v1.y, v2.y ) && equal( v1.z, v2.z );
   }
 
   /**

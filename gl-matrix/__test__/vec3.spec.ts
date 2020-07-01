@@ -402,4 +402,22 @@ describe('Tests of vec3', () => {
 
     expect( result ).toBeFalsy();
   });
+
+  it('should get true when two vec3s is approximately equal', () => {
+    const v1 = new Vec3();
+    const v2 = new Vec3({ x: 0.00000001, y: 0.0, z: 0.0 });
+
+    const result = Vec3.equals( v1, v2 );
+
+    expect( result ).toBeTruthy();
+  });
+
+  it('should get false when two vec3s is not approximately equal', () => {
+    const v1 = new Vec3();
+    const v2 = new Vec3({ x: 0.00001, y: 0.0, z: 0.0 });
+
+    const result = Vec3.equals( v1, v2 );
+
+    expect( result ).toBeFalsy();
+  });
 });
