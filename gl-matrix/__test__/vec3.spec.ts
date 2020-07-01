@@ -340,4 +340,15 @@ describe('Tests of vec3', () => {
     expect( equal( vec3.y, 0 ) ).toBeTruthy();
     expect( equal( vec3.z, Math.sqrt( 2 ) ) ).toBeTruthy();
   });
+
+  it('should get correct vec3 when call rotateZ method', () => {
+    const vec3 = new Vec3({ x: 2.0, y: 0.0, z: 0.0 });
+    const origin = new Vec3();
+
+    vec3.rotateZ( origin, 45 );
+
+    expect( equal( vec3.x, Math.sqrt( 2 ) ) ).toBeTruthy();
+    expect( equal( vec3.y, Math.sqrt( 2 ) ) ).toBeTruthy();
+    expect( equal( vec3.z, 0 ) ).toBeTruthy();
+  });
 });
