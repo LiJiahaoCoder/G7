@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import { toDegree, ARRAY } from './common';
+import { toDegree, toRadian, ARRAY } from './common';
 
 export default class Vec3 {
   public readonly elements: ArrayType;
@@ -235,7 +235,7 @@ export default class Vec3 {
     });
   }
 
-  // TODO: static hermite and bezier
+  // TODO: static hermite
 
   /**
    * Generates a random vector with the given scale
@@ -457,7 +457,7 @@ export default class Vec3 {
    * Rotate a 3D vector around the x-axis
    *
    * @param {Vec3} vec3 The origin of the rotation
-   * @param {number} angle The angle of rotation
+   * @param {number} angle The angle of rotation in degrees
    * @returns {Vec3} Vec3
    */
   public rotateX ( vec3: Vec3, angle: number ): Vec3 {
@@ -471,6 +471,7 @@ export default class Vec3 {
       y: 0,
       z: 0,
     };
+    const radian = toRadian( angle );
 
     // translate to origin
     origin.x = this.x - vec3.x;
@@ -478,8 +479,8 @@ export default class Vec3 {
     origin.z = this.z - vec3.z;
 
     rotation.x = origin.x;
-    rotation.y = origin.y * Math.cos( angle ) - origin.z * Math.sin( angle );
-    rotation.z = origin.y * Math.sin( angle ) + origin.z * Math.cos( angle );
+    rotation.y = origin.y * Math.cos( radian ) - origin.z * Math.sin( radian );
+    rotation.z = origin.y * Math.sin( radian ) + origin.z * Math.cos( radian );
 
     return this.set(
       rotation.x + vec3.x,
@@ -492,7 +493,7 @@ export default class Vec3 {
    * Rotate a 3D vector around the y-axis
    *
    * @param {Vec3} vec3 The origin of the rotation
-   * @param {number} angle The angle of rotation
+   * @param {number} angle The angle of rotation in degrees
    * @returns {Vec3} Vec3
    */
   public rotateY ( vec3: Vec3, angle: number ): Vec3 {
@@ -506,15 +507,16 @@ export default class Vec3 {
       y: 0,
       z: 0,
     };
+    const radian = toRadian( angle );
 
     // translate to origin
     origin.x = this.x - vec3.x;
     origin.y = this.y - vec3.y;
     origin.z = this.z - vec3.z;
 
-    rotation.x = origin.z * Math.sin( angle ) + origin.x * Math.cos( angle );
+    rotation.x = origin.z * Math.sin( radian ) + origin.x * Math.cos( radian );
     rotation.y = origin.y;
-    rotation.z = origin.z * Math.cos( angle ) - origin.x * Math.sin( angle );
+    rotation.z = origin.z * Math.cos( radian ) - origin.x * Math.sin( radian );
 
     return this.set(
       rotation.x + vec3.x,
@@ -527,7 +529,7 @@ export default class Vec3 {
    * Rotate a 3D vector around the z-axis
    *
    * @param {Vec3} vec3 The origin of the rotation
-   * @param {number} angle The angle of rotation
+   * @param {number} angle The angle of rotation in degrees
    * @returns {Vec3} Vec3
    */
   public rotateZ ( vec3: Vec3, angle: number ): Vec3 {
@@ -541,14 +543,15 @@ export default class Vec3 {
       y: 0,
       z: 0,
     };
+    const radian = toRadian( angle );
 
     // translate to origin
     origin.x = this.x - vec3.x;
     origin.y = this.y - vec3.y;
     origin.z = this.z - vec3.z;
 
-    rotation.x = origin.x * Math.cos( angle ) - origin.y * Math.sin( angle );
-    rotation.y = origin.x * Math.sin( angle ) + origin.y * Math.cos( angle );
+    rotation.x = origin.x * Math.cos( radian ) - origin.y * Math.sin( radian );
+    rotation.y = origin.x * Math.sin( radian ) + origin.y * Math.cos( radian );
     rotation.z = origin.z;
 
     return this.set(
