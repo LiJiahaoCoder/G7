@@ -280,6 +280,19 @@ describe('Tests of vec3', () => {
     expect( vec3.z <= 1.0 && vec3.z >= -1.0 ).toBeTruthy();
   });
 
+  it('should get correct point when t is 0.5', () => {
+    const v1 = new Vec3({ x: 1.0, y: 1.0, z: 1.0 });
+    const v2 = new Vec3({ x: 4.0, y: 4.0, z: 4.0 });
+    const v3 = new Vec3({ x: 6.0, y: 6.0, z: 6.0 });
+    const v4 = new Vec3({ x: 10.0, y: 10.0, z: 10.0 });
+
+    const res = Vec3.hermite( v1, v2, v3, v4, 0.5 );
+
+    expect( res.x ).toBe( 5.25 );
+    expect( res.y ).toBe( 5.25 );
+    expect( res.z ).toBe( 5.25 );
+  });
+
   it('should get first point when t is 0', () => {
     const v1 = new Vec3({ x: 1.0, y: 1.0, z: 1.0 });
     const v2 = new Vec3({ x: 4.0, y: 4.0, z: 4.0 });

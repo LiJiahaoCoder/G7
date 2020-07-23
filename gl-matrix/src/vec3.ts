@@ -219,7 +219,7 @@ export default class Vec3 {
    * @param {Vec3} v1 First vec3
    * @param {Vec3} v2 Second vec3
    * @param {number} t Interpolation amount, in the range [0-1]
-   * @returns {Vec3} Vec3
+   * @returns {Vec3} New vec3
    */
   static lerp ( v1: Vec3, v2: Vec3, t: number): Vec3 {
     return new Vec3({
@@ -235,7 +235,30 @@ export default class Vec3 {
     });
   }
 
-  // TODO: static hermite
+  /**
+   * Performs a hermite interpolation with two control points
+   *
+   * @static
+   * @param {Vec3} v1 First operand
+   * @param {Vec3} v2 Second operand
+   * @param {Vec3} v3 Third operand
+   * @param {Vec3} v4 Fourth operand
+   * @param {number} t interpolation amount, in the range [0-1], between the two inputs
+   * @returns {Vec3} New vec3
+   */
+  static hermite ( v1: Vec3, v2: Vec3, v3: Vec3, v4: Vec3, t: number ): Vec3 {
+    const factorPowers2 = t * t;
+    const factor1 = factorPowers2 * (2 * t - 3) + 1;
+    const factor2 = factorPowers2 * (t - 2) + t;
+    const factor3 = factorPowers2 * (t - 1);
+    const factor4 = factorPowers2 * (3 - 2 * t);
+
+    const x = v1.x * factor1 + v2.x * factor2 + v3.x * factor3 + v4.x * factor4;
+    const y = v1.y * factor1 + v2.y * factor2 + v3.y * factor3 + v4.y * factor4;
+    const z = v1.z * factor1 + v2.z * factor2 + v3.z * factor3 + v4.z * factor4;
+
+    return new Vec3({ x, y, z });
+  }
 
   /**
    * Generates a random vector with the given scale
