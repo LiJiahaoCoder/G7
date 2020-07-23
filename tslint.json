@@ -11,7 +11,6 @@
         "curly": [true, "ignore-same-line"],
         "eofline": true,
         "indent": [true, "spaces", 2],
-        "interface-name": [true, "always-prefix"],
         "max-line-length": [true, 120],
         "member-ordering": [
             true,
