@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
-  entry: path.resolve(__dirname, './example/index.tsx'),
+  entry: path.resolve(__dirname, './example/index.ts'),
   output: {
     path: path.join(__dirname, 'example/dist'),
     filename: 'main.[hash:6].js',
@@ -25,6 +25,12 @@ module.exports = {
         use: [
           { loader: 'tslint-loader' },
         ]
+      },
+      {
+        test: /\.glsl$/,
+        use: [
+          { loader: 'raw-loader' },
+        ],
       },
       {
         test: /\.s?[ac]ss$/,

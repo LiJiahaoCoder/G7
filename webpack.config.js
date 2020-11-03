@@ -3,7 +3,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: path.resolve(__dirname, './src/index.tsx'),
+  entry: path.resolve(__dirname, './src/index.ts'),
   output: {
     path: path.join(__dirname, './lib'),
     filename: 'index.js',
@@ -28,6 +28,12 @@ module.exports = {
         use: [
           { loader: 'tslint-loader' },
         ]
+      },
+      {
+        test: /\.glsl$/,
+        use: [
+          { loader: 'raw-loader' },
+        ],
       },
       {
         test: /\.s?[ac]ss$/,
