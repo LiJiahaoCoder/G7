@@ -83,13 +83,13 @@ export const initShaders = (
   Object.defineProperty(gl, 'program', program);
 
   return {
+    gl,
     program,
-    ...gl,
   };
 };
 
-export const getAttribute = (gl: WebGLContext, attribute: string) => {
-  const a_Attribute = gl.getAttribLocation(gl.program, attribute);
+export const getAttribute = (gl: WebGL2RenderingContext, program: WebGLProgram, attribute: string) => {
+  const a_Attribute = gl.getAttribLocation(program, attribute);
   if (a_Attribute < 0) {
     throw new Error(`Failed to get attribute: ${attribute}`);
   }
@@ -98,7 +98,8 @@ export const getAttribute = (gl: WebGLContext, attribute: string) => {
 };
 
 export const initVertexBuffer = (
-  gl: WebGLContext,
+  gl: WebGL2RenderingContext,
+  program: WebGLProgram,
   options: VertexBufferOptions,
 ) => {
   const { vertices, colors, vertexSize, colorSize, indices } = options;
@@ -107,17 +108,16 @@ export const initVertexBuffer = (
     throw new Error('Failed to initialize vertex buffer');
   }
 
-  initArrayBuffer(gl, vertices, vertexSize, gl.FLOAT, VertexShaderVariables.a_Position);
-  initArrayBuffer(gl, colors, colorSize, gl.FLOAT, VertexShaderVariables.a_Color);
-  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-  gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+  initArrayBuffer(gl, program, vertices, vertexSize, gl.FLOAT, VertexShaderVariables.a_Position);
+  initArrayBuffer(gl, program, colors, colorSize, gl.FLOAT, VertexShaderVariables.a_Color);
 
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffer);
   gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, indices, gl.STATIC_DRAW);
 };
 
 export const initArrayBuffer = (
-  gl: WebGLContext,
+  gl: WebGL2RenderingContext,
+  program: WebGLProgram,
   data: Float32Array,
   size: number,
   type: number,
@@ -131,7 +131,7 @@ export const initArrayBuffer = (
   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
   gl.bufferData(gl.ARRAY_BUFFER, data, gl.STATIC_DRAW);
 
-  const a_Attribute = getAttribute(gl, attribute);
+  const a_Attribute = getAttribute(gl, program, attribute);
 
   gl.vertexAttribPointer(a_Attribute, size, type, false, 0, 0);
   gl.enableVertexAttribArray(a_Attribute);

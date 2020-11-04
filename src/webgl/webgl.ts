@@ -6,14 +6,14 @@ import {
 import vshader from './shaders/vertex.glsl';
 import fshader from './shaders/fragment.glsl';
 
-export const create = (query: string) => {
-  const gl = initShaders(
+export const createWebGL = (query: string) => (
+  initShaders(
     getContext(getCanvas(query)),
     vshader,
     fshader,
-  );
-};
+  )
+);
 
 export default {
-  create,
+  createWebGL,
 };

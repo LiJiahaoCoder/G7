@@ -1,4 +1,5 @@
-export interface WebGLContext extends WebGL2RenderingContext {
+export interface WebGLContext {
+  gl: WebGL2RenderingContext;
   program: WebGLProgram;
 }
 

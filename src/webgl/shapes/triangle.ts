@@ -1,10 +1,11 @@
-import { WebGLContext, TriangleOptions } from '@/types/webgl';
+import { TriangleOptions } from '@/types/webgl';
 import { initVertexBuffer } from '../utils';
 
-export const createTriangle = (gl: WebGLContext, options: TriangleOptions) => {
+export const createTriangle = (gl: WebGL2RenderingContext, program: WebGLProgram, options: TriangleOptions) => {
   const { vertices, colors, indices } = options;
   initVertexBuffer(
     gl,
+    program,
     {
       vertices,
       colors,
