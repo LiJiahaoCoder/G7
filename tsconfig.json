@@ -19,7 +19,7 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["./src/*"],
     }
   },
   "exclude": [
@@ -28,9 +28,9 @@
     "lib",
   ],
   "include": [
+    "__tests__",
+    "example",
     "src/**/*",
     "global.d.ts",
-    "example",
-    "__tests__",
   ]
 }
